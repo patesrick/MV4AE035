@@ -664,6 +664,85 @@ symétrique positive.
 	au sens matriciel.
 	}
 	\end{enumerate}
+
+\exo{Théorème de Cochran}  L'objectif de cet exercice est de démontrer la version du 
+	théorème de Cochran utilisée dans le cours. 
+	Soient :
+	\begin{itemize}
+	\item $\mathbf{Y}$ un vecteur gaussien $\mathbf{Y} \sim \mathcal{N}(\boldsymbol{\mu}, \sigma^2\mathbf{I}_n)$;
+  \item $\mathcal{M}$ un sous-espace vectoriel de $\mathbb{R}^n$ de dimension $p$;
+  \item $\mathbf{P}$ la matrice de projection orthogonale sur $\mathcal{M}$;
+  \item $\mathbf{P}^{\bot} = \mathbf{I}_n - \mathbf{P}$ la matrice de la projection sur l'espace orthogonal $\mathcal{M}^{\bot}$.
+	\end{itemize}
+	On cherche alors à montrer les énoncés suivants :
+	\begin{itemize}
+	\item[(i)] $\mathbf{P}\mathbf{Y} \sim \mathcal{N}(\mathbf{P}\boldsymbol{\mu}, \sigma^2\mathbf{P})$
+et
+$\mathbf{P}^{\bot}\mathbf{Y} \sim \mathcal{N}(\mathbf{P}^{\bot}\boldsymbol{\mu}, \sigma^2\mathbf{P}^{\bot})$;
+	\item[(ii)] $\mathbf{P}\mathbf{Y}$ et $\mathbf{P}^{\bot}\mathbf{Y}$ sont independents;
+	\item[(iii)]
+$\frac{1}{\sigma^2}\|\mathbf{P}(\mathbf{Y} - \boldsymbol{\mu}) \|^2 \sim \chi^2_{p}$
+et
+$\frac{1}{\sigma^2}\|\mathbf{P}^{\bot}(\mathbf{Y} - \boldsymbol{\mu}) \|^2 \sim \chi^2_{n - p}$.
+	\end{itemize}
+	Ce sont ces proprités qui permettent de conclure sur la loi des estimateurs dans le
+	cas de la régression linéaire gaussienne.
+
+	\begin{enumerate}
+		\item Montrez que, si l'on adment le théorème, on peut retrouver la loi des
+		estimateurs $\hat{\boldsymbol{\beta}}$ et $\hat{\sigma}^2$ dans le cas classique
+		du modèle gaussien multivarié.
+		\item En utilisant les propriétés usuelles des vecteurs gaussiens, montrez l'énoncé (i).
+		\item Soit $\mathbf{U}$ une matrice orthogonale de taille $n$ 
+		(telle que $\mathbf{U}\mathbf{U}^T = \mathbf{I}_n$), 
+		et $\mathbf{\Delta}$ une matrice diagonale vérifiant $\Delta_{ii} = 1$ si $1 \leq i \leq p$
+		et $\Delta_{ii} = 0$ si $i \geq p$, telles que $\mathbf{P} = \mathbf{U}\mathbf{\Delta}\mathbf{U}^T$.
+		Soit $\mathbf{Z} = \mathbf{U}^T\mathbf{Y}$. 
+		\begin{enumerate}
+		\item Justifiez l'existence de la décomposition $\mathbf{P} = \mathbf{U}\mathbf{\Delta}\mathbf{U}^T$.
+		\item Donnez la loi du vecteur $\mathbf{Z}$.
+		\item Montrez que $\mathbf{\Delta}\mathbf{Z}$ est indépendant de $(\mathbf{I_n} - \mathbf{\Delta})\mathbf{Z}$.
+		\item Montrez que $\mathbf{U}\mathbf{\Delta}\mathbf{Z} = \mathbf{P} \mathbf{Y}$ 
+		et $\mathbf{U}(\mathbf{I_n} - \mathbf{\Delta})\mathbf{Z} = \mathbf{P}^{\bot} \mathbf{Y}$.
+		\item En déduire l'énoncé (ii).
+		\end{enumerate}
+		\item On cherche dans cette question à montrer le lemme intermédiaire suivant.
+		Soit $\mathbf{X} \sim \mathcal{N}(\mathbf{m}, \mathbf{\Sigma})$
+		une variable aléatoire de dimension $q$, avec $\mathbf{\Sigma}$ une matrice symétrique
+		définie positive. Alors la variable $\rho = (\mathbf{X} - \mathbf{m})^T \mathbf{\Sigma}^{-1}(\mathbf{X} - \mathbf{m})$
+		suit la loi $\chi^2_q$ du chi deux à $q$ degrés de libertés.
+		\begin{enumerate}
+		\item Montrez le lemme dans le cas $q = 1$.
+		\item Dans le cas général, justifiez l'existence de $\mathbf{\Sigma}^{-1}$,
+		et montrez qu'il existe une matrice $\mathbf{V}$ inversible telle 
+		que $\mathbf{\Sigma}^{-1} = \mathbf{V}^T\mathbf{V}$.
+		\item Donnez la loi de $\tilde{\mathbf{X}} = \mathbf{V}(\mathbf{X} - \mathbf{m})$.
+		\item En déduire que $\|\tilde{\mathbf{X}}\|^2 \sim \chi^2_q$.
+		\item Concluez la démonstration du lemme en montrant que 
+		$\|\tilde{\mathbf{X}}\|^2 = (\mathbf{X} - \mathbf{m})^T \mathbf{\Sigma}^{-1}(\mathbf{X} - \mathbf{m})$.
+		\end{enumerate}
+		\item On s'interesse maintenant au terme quadratique de (iii).
+		On note $\mathbf{Z}_p = (\mathbf{Z})_{1 \leq i \leq p}$ le vecteur contenant
+		les $p$ premières coordonées du vecteur $\mathbf{Z}$ défini ci-dessus.
+		\begin{enumerate}
+		\item Montrez :
+		$
+		\|\mathbf{P}(\mathbf{Y} - \boldsymbol{\mu}) \|^2 = 
+		(\mathbf{\Delta}\mathbf{U}^T\mathbf{Y} - \mathbf{\Delta}\mathbf{U}^T\boldsymbol{\mu})^T
+		(\mathbf{\Delta}\mathbf{U}^T\mathbf{Y} - \mathbf{\Delta}\mathbf{U}^T\boldsymbol{\mu})
+		$.
+		\item 
+		En déduire :
+		$
+		\|\mathbf{P}(\mathbf{Y} - \boldsymbol{\mu}) \|^2 = 
+		(\mathbf{Z}_p - \mathbb{E}[\mathbf{Z}_p])^T(\mathbf{Z}_p - \mathbb{E}[\mathbf{Z}_p])
+		$.
+		\item En utilisant le lemme ci-dessus, en déduire que 
+		$\frac{1}{\sigma^2}\|\mathbf{P}(\mathbf{Y} - \boldsymbol{\mu}) \|^2 \sim \chi^2_{p}$.
+		\item Concluez la démonstration de l'énoncé (iii).
+		\end{enumerate}
+	\end{enumerate}
 \end{document}
+
 
 
