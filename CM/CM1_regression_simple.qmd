@@ -36,7 +36,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * Cadre gaussien
 * Validation et sélection de modèle
   * Analyse des résidus
-  * Selection de variables
+  * Sélection de variables
 * Variables qualitatives
   * ANOVA
 
