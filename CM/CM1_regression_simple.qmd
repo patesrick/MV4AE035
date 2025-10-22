@@ -48,7 +48,7 @@ knitr::opts_chunk$set(echo = TRUE)
   * TP : 5h (2 séances)
   
 * Evaluation
-  * 1/2 examen intermédiare
+  * 1/2 examen intermédiaire
   * 1/2 examen final
 
 ## Ressources
